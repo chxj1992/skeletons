@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-controller="DataController">
+
+
+<div ng-init="init()">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Content</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in data">
+            <td>[[row.id]]</td>
+            <td>[[row.content]]</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination total-items="totalItems" items-per-page="pageSize" ng-model="currentPage" ng-change="getList()"></pagination>
+</div>
+
+
+
+</body>
+</html>

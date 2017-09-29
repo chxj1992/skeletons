@@ -1,0 +1,32 @@
+build_settings:
+  ignore:
+    - "vendor"
+  mysql:
+    host: "localhost"
+    user: "root"
+    pass: "rootpass"
+
+setup:
+  env:
+    COMPOSER_HOME: "/etc/composer/"
+  composer:
+    prefer_dist: true
+    action: "update"
+  mysql:
+    - "DROP DATABASE IF EXISTS db_test;"
+    - "CREATE DATABASE doctor_test;"
+    - "GRANT ALL PRIVILEGES ON db_test.* TO user@'localhost' IDENTIFIED BY 'userpassword';"
+  shell:
+    - "cat %BUILD_PATH%/db/db_test.sql | mysql -u'root' -p'rootpass' 'db_test'"
+
+test:
+  php_loc:
+    directory: "src"
+  php_unit:
+    config:
+      - "phpunit.xml"
+  php_code_sniffer:
+    path: "src/Main"
+    standard: "PSR1"
+
+

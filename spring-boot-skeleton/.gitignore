@@ -1,0 +1,11 @@
+build/
+out/
+.idea/
+.ideaDataSources/
+.gradle/
+*.iml
+*.ipr
+*.iws
+gradle.properties
+application.properties
+.gradletasknamecache

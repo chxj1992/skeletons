@@ -1,0 +1,4 @@
+flyway.url = jdbc:mysql://mysql:3306/spring_app?autoReconnect=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+flyway.user = root
+flyway.password = root
+flyway.schemas = spring_app

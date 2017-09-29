@@ -1,0 +1,35 @@
+{
+  "name": "chxj1992/silex-mvc-skeleton",
+  "description": "my silex mvc skeleton project",
+  "license": "MIT",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Xiaojing Chen",
+      "homepage": "https://github.com/chxj1992"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "silex/silex": "~1.2",
+    "phpunit/phpunit": "4.5.*",
+    "silex/web-profiler": "1.0.*@dev",
+    "symfony/monolog-bridge": "~2.3",
+    "symfony/validator": "~2.3",
+    "symfony/browser-kit": "~2.3",
+    "symfony/css-selector": "~2.3",
+    "symfony/console": "~2.3",
+    "doctrine/dbal": "2.5.1",
+    "doctrine/migrations": "1.0.*@dev",
+    "jasongrimes/silex-simpleuser": "2.0.1"
+  },
+  "autoload": {
+    "psr-4": {"My\\Project\\": "src/"}
+  },
+  "scripts": {
+    "run": [
+      "echo 'Started web server on http://localhost:8000'",
+      "php -S 0.0.0.0:8000 -t web web/index_dev.php"
+    ]
+  }
+}
