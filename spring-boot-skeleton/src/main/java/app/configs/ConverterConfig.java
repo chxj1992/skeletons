@@ -11,14 +11,14 @@ public class ConverterConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new OperationTypeConverter());
+        registry.addConverter(new StatusConverter());
     }
 
-    class OperationTypeConverter implements Converter<String, Status> {
+    class StatusConverter implements Converter<String, Status> {
 
         public Status convert(String source) {
             try {
-                return Status.parse(Integer.parseInt(source)).orElse(null);
+                return Status.create(source);
             } catch (Exception e) {
                 return null;
             }

@@ -1,8 +1,7 @@
 package app.enums;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import java.util.Optional;
 
 public enum Status {
 
@@ -25,13 +24,18 @@ public enum Status {
         return String.valueOf(value);
     }
 
-    public static Optional<Status> parse(Integer value) {
-        for (Status status : Status.values()) {
-            if (status.getValue().equals(value)) {
-                return  Optional.of(status);
+    @JsonCreator
+    public static Status create(String value) {
+        if (value == null) {
+            throw new IllegalArgumentException();
+        }
+        for (Status v : values()) {
+            if (value.equals(v.getValue().toString())) {
+                return v;
             }
         }
-        return Optional.empty();
+        throw new IllegalArgumentException();
     }
+
 
 }
